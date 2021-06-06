@@ -41,10 +41,7 @@ class SystemInfoTest : public ::testing::Test {
 protected:
   FilePath getTestProcessExePath() const noexcept {
     FilePath generatedDir(qApp->applicationDirPath());
-#if defined(Q_OS_OSX)  // Mac OS X
-    return generatedDir.getPathTo(
-        "dummy-binary.app/Contents/MacOS/dummy-binary");
-#elif defined(Q_OS_UNIX)  // UNIX/Linux
+#if defined(Q_OS_UNIX) || defined(Q_OS_OSX)  // UNIX/Linux or macOS
     return generatedDir.getPathTo("dummy-binary");
 #elif defined(Q_OS_WIN32) || defined(Q_OS_WIN64)  // Windows
     return generatedDir.getPathTo("dummy-binary.exe");
