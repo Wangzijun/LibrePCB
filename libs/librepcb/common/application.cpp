@@ -37,25 +37,16 @@
 // Read the release workflow documentation (at https://developers.librepcb.org)
 // before making changes here!!!
 
-// Application version:
-//  - Always three numbers (MAJOR.MINOR.PATCH)!
-//  - Unstable versions (non-release branches): Suffix "-unstable", e.g.
-//    "1.0.0-unstable"
-//  - Release candidates (on release branches): Suffix "-rc#", e.g. "1.0.0-rc3"
-//  - Releases (on release branches):           No suffix, e.g. "1.0.0"
-static const char* APP_VERSION = "0.2.0-unstable";
+// Application version (configured in the top-level `CMakeLists.txt`)
+static const char* APP_VERSION = LIBREPCB_APP_VERSION;
 
-// File format version:
-//  - Must be equal to the major version of APP_VERSION!
-//  - If APP_VERSION < 1.0.0:   Two numbers, e.g. "0.2" for APP_VERSION=="0.2.x"
-//  - If APP_VERSION >= 1.0.0:  Only one number, e.g. "2" for
-//    APP_VERSION=="2.x.y"
-static const char* FILE_FORMAT_VERSION = "0.2";
+// File format version (configured in the top-level `CMakeLists.txt`)
+static const char* FILE_FORMAT_VERSION = LIBREPCB_FILE_FORMAT_VERSION;
 
 // File format stable flag:
 //  - On all non-release branches: false
 //  - On release branches: true
-static const bool FILE_FORMAT_STABLE = false;
+static const bool FILE_FORMAT_STABLE = LIBREPCB_FILE_FORMAT_STABLE;
 
 /*******************************************************************************
  *  Namespace
